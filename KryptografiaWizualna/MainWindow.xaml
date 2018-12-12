@@ -1,0 +1,48 @@
+﻿<Window x:Class="KryptografiaWizualna.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KryptografiaWizualna"
+        mc:Ignorable="d"
+        Title="Kryptografia Wizualna Piotr Biskup" Height="450" Width="800">
+    <Grid>
+        <Border Padding="10">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Margin="0 0 0 5" Text="Wczytaj zdjęcie z pliku " HorizontalAlignment="Center"/>
+                        <Button x:Name="ImageButtonSrc" Width="160" Height="160" Click="ImageButtonSrc_Click">
+                            <StackPanel>
+                                <Image x:Name="ImageInButtonSrc"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Udział 1" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                        <Button x:Name="ImageButton1" Width="160" Height="160" Click="ImageButton1_Click">
+                            <StackPanel>
+                                <Image x:Name="ImageInButton1"/>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Udział 2" HorizontalAlignment="Center" Margin="0 10 0 5"/>
+                        <Button x:Name="ImageButton2" Width="160" Height="160" Click="ImageButton2_Click">
+                            <StackPanel>
+                                <Image x:Name="ImageInButton2"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                
+            </StackPanel>
+        </Border>
+        
+        
+    </Grid>
+</Window>
