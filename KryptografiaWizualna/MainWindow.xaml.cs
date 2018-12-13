@@ -129,8 +129,101 @@ namespace KryptografiaWizualna
 
         private void SzyfrujButton_Click(object sender, RoutedEventArgs e)
         {
+            szyfruj();
+
+            ImageInButton1.Source = BitmapToBitmapImage(bitmap1);
+            ImageInButton2.Source = BitmapToBitmapImage(bitmap2);
 
         }
+
+        private void szyfruj()
+        {
+            bitmap1 = new Bitmap(2 * widthSrc, heightSrc, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            bitmap2 = new Bitmap(2 * widthSrc, heightSrc, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+            System.Drawing.Color pixel;
+            int color_value;
+            Random rand = new Random();
+
+            for(int i = 0; i < heightSrc; i++)
+            {
+                for(int j = 0; j < widthSrc; j++)
+                {
+                    pixel = bitmapSrc.GetPixel(j, i);
+                    color_value = pixel.R;
+
+                    if(color_value == 255)
+                    {
+                        wypelnij(j, i, false, rand.Next(1, 3));
+
+                    } else
+                    {
+                        wypelnij(j, i, true, rand.Next(1, 3));
+                    }
+
+                }
+            }
+
+        }
+
+        private void wypelnij(int j, int i, bool isBlack, int rand)
+        {
+            if(isBlack)
+            {
+                switch (rand)
+                {
+                    case 1:
+
+                        bitmap1.SetPixel(j * 2, i, System.Drawing.Color.Black);
+                        bitmap1.SetPixel((j * 2) + 1, i, System.Drawing.Color.White);
+
+                        bitmap2.SetPixel(j * 2, i, System.Drawing.Color.White);
+                        bitmap2.SetPixel((j * 2) + 1 , i, System.Drawing.Color.Black);
+
+                        break;
+
+                    case 2:
+
+                        bitmap1.SetPixel(j * 2, i, System.Drawing.Color.White);
+                        bitmap1.SetPixel((j * 2) + 1, i, System.Drawing.Color.Black);
+
+                        bitmap2.SetPixel(j * 2, i, System.Drawing.Color.Black);
+                        bitmap2.SetPixel((j * 2) + 1, i, System.Drawing.Color.White);
+
+                        break;
+                }
+            }
+            else
+            {
+                switch (rand)
+                {
+                    case 1:
+
+                        bitmap1.SetPixel(j * 2, i, System.Drawing.Color.Black);
+                        bitmap1.SetPixel((j * 2) + 1 , i, System.Drawing.Color.White);
+
+                        bitmap2.SetPixel(j * 2, i, System.Drawing.Color.Black);
+                        bitmap2.SetPixel((j * 2) + 1 , i , System.Drawing.Color.White);
+
+                        break;
+
+                    case 2:
+
+                        bitmap1.SetPixel(j * 2, i, System.Drawing.Color.White);
+                        bitmap1.SetPixel((j * 2) + 1, i, System.Drawing.Color.Black);
+
+                        bitmap2.SetPixel(j * 2, i, System.Drawing.Color.White);
+                        bitmap2.SetPixel((j * 2) + 1 , i ,  System.Drawing.Color.Black);
+
+                        break;
+                }
+            }
+        }
+
+
+
+
+
 
         private void DeszyfrujButton_Click(object sender, RoutedEventArgs e)
         {
@@ -150,20 +243,6 @@ namespace KryptografiaWizualna
         private void SaveImg2Button_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        public Byte[] ImageToByte(BitmapImage imageSource)
-        {
-            byte[] data;
-            BmpBitmapEncoder encoder = new BmpBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(imageSource));
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                data = ms.ToArray();
-            }
-
-            return data;
         }
 
         public Bitmap Binarny(Bitmap bmp)
