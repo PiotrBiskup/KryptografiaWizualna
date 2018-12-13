@@ -289,7 +289,8 @@ namespace KryptografiaWizualna
             try
             {
                 SaveFileDialog dialog = new SaveFileDialog();
-                dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                //dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                dialog.Filter = "BMP(*.bmp)|*.bmp|PNG(*.png)|*.png";
                 if (dialog.ShowDialog() == true)
                 {
                     var extension = System.IO.Path.GetExtension(dialog.FileName);
@@ -317,7 +318,8 @@ namespace KryptografiaWizualna
             try
             {
                 SaveFileDialog dialog = new SaveFileDialog();
-                dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                // dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                dialog.Filter = "BMP(*.bmp)|*.bmp|PNG(*.png)|*.png";
                 if (dialog.ShowDialog() == true)
                 {
                     var extension = System.IO.Path.GetExtension(dialog.FileName);
