@@ -222,6 +222,35 @@ namespace KryptografiaWizualna
 
         private void DeszyfrujButton_Click(object sender, RoutedEventArgs e)
         {
+            if(bitmap1 != null && bitmap2 != null && bitmap1.Height == bitmap2.Height && bitmap1.Width == bitmap2.Width)
+            {
+                deszyfruj();
+                ImageInButtonSrc.Source = BitmapToBitmapImage(bitmapSrc);
+
+            } else
+            {
+                MessageBox.Show("Błąd! Różne rozmiary udziałów.");
+            }
+        }
+
+        private void deszyfruj()
+        {
+            Bitmap combined = new Bitmap(bitmap1.Width / 2, bitmap1.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            for(int i = 0; i < combined.Height; i++)
+            {
+                for(int j = 0; j < combined.Width; j++)
+                {
+                    if (bitmap1.GetPixel((j * 2), i) == bitmap2.GetPixel((j * 2), i) &&
+                        bitmap1.GetPixel((2 * j) + 1, i) == bitmap2.GetPixel((j * 2) + 1, i))
+                        combined.SetPixel(j, i, System.Drawing.Color.White);
+                    else
+                        combined.SetPixel(j, i, System.Drawing.Color.Black);
+                }
+            }
+
+            bitmapSrc = combined;
+            heightSrc = bitmapSrc.Height;
+            widthSrc = bitmapSrc.Width;
 
         }
 
