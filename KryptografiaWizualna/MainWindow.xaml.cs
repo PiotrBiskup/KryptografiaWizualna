@@ -220,29 +220,95 @@ namespace KryptografiaWizualna
             }
         }
 
-
-
-
-
-
         private void DeszyfrujButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+
+
         private void SaveImgSrcButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                if (dialog.ShowDialog() == true)
+                {
+                    var extension = System.IO.Path.GetExtension(dialog.FileName);
+                    switch (extension.ToLower())
+                    {
+                        case ".png":
+                            bitmapSrc.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+                        case ".bmp":
+                            bitmapSrc.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(extension);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Zapisanie pliku nie udało sie!");
+            }
         }
 
         private void SaveImg1Button_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                if (dialog.ShowDialog() == true)
+                {
+                    var extension = System.IO.Path.GetExtension(dialog.FileName);
+                    switch (extension.ToLower())
+                    {
+                        case ".png":
+                            bitmap1.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+                        case ".bmp":
+                            bitmap1.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(extension);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Zapisanie pliku nie udało sie!");
+            }
         }
 
         private void SaveImg2Button_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "PNG(*.png)|*.png|BMP(*.bmp)|*.bmp";
+                if (dialog.ShowDialog() == true)
+                {
+                    var extension = System.IO.Path.GetExtension(dialog.FileName);
+                    switch (extension.ToLower())
+                    {
+                        case ".png":
+                            bitmap2.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+                        case ".bmp":
+                            bitmap2.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(extension);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Zapisanie pliku nie udało sie!");
+            }
         }
 
         public Bitmap Binarny(Bitmap bmp)
