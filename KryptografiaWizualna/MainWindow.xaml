@@ -22,6 +22,12 @@
                                 <Image x:Name="ImageInButtonSrc"/>
                             </StackPanel>
                         </Button>
+
+                        <Button x:Name="SzyfrujButton" Content="Szyfruj" Margin=" 0 15 0 5" Width="160" Click="SzyfrujButton_Click"/>
+                        <Button x:Name="DeszyfrujButton" Content="Deszyfruj" Margin=" 0 10 0 5"  Width="160" Click="DeszyfrujButton_Click"/>
+                        <Button x:Name="SaveImgSrcButton" Content="Zapisz obraz źródłowy" Margin=" 0 10 0 5"  Width="160" Click="SaveImgSrcButton_Click"/>
+                        <Button x:Name="SaveImg1Button" Content="Zapisz udział 1" Margin=" 0 10 0 5"  Width="160" Click="SaveImg1Button_Click"/>
+                        <Button x:Name="SaveImg2Button" Content="Zapisz udział 2" Margin=" 0 10 0 5"  Width="160" Click="SaveImg2Button_Click"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
