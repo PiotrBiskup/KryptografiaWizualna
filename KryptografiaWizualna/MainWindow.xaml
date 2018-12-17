@@ -8,7 +8,9 @@
         Title="Kryptografia Wizualna Piotr Biskup" Height="450" Width="800">
     <Grid>
         <Border Padding="10">
+            <ScrollViewer>
             <StackPanel>
+                <TextBlock TextWrapping="Wrap" x:Name="teoriaTextBlock" Margin="0 0 0 10"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -47,6 +49,7 @@
                 </Grid>
                 
             </StackPanel>
+            </ScrollViewer>
         </Border>
         
         

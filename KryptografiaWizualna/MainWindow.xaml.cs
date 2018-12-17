@@ -36,6 +36,7 @@ namespace KryptografiaWizualna
         public MainWindow()
         {
             InitializeComponent();
+            teoriaTextBlock.Text = "Wczytujemy dowolny obraz za pomocą przycisku Wczytaj z pliku. Sprawdzane jest czy zdjęcie jest czarno białe. Jeśli nie jest, zdjęcie zmieniane jest na monochromatyczne. Maksymalny rozmiar wczytanego zdjęcia to 4000 x 4000 px. Po naduszeniu przycisku Szyfruj otrzymujemy dwa obrazy o dwa razy większej szerokości. Zaszyfrowany w nich jest obraz wejściowy. Można również wczytać dwa obrazy, które są czarno biało bitmapą. Po naduszeniu Deszyfruj otrzymujemy obraz pierwotny. Za pomocą przycisków Zapisz możemy zapisać do pliku otrzymane obrazy.\n\nTeroia: program sprawdza po kolei każdy pikselel obrazu.Jeżeli jest czarny to z prawdopodbieństwem 0,5 dodaje do udziału pierwszego piksel czarny i biały, a do udziało drugiego piksel biały i czarny lub z prawdopodbieństwem 0,5 dodaje do udziału pierwszego piksel biały i czarny, a do udziału drugiego czarmy i biały. Po nałożeniu na siebie obu udziałów otrzymujemy kolor czarny. Natomiast jeżeli piksel w obrazie źródłowym jest biały to z prawdopodbieństwem 0,5 dodajemy do udziału pierwszego i drugiego piksele czarny i biały lub z prawdopodbieństwem 0,5 dodajemy do udziału pierwsze i drugiego piksele biały i czarny.Po nałożeniu na siebie udziałów otrzymujemy kolor szary.";
         }
 
         private void ImageButtonSrc_Click(object sender, RoutedEventArgs e)
